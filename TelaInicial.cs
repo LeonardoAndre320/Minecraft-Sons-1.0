@@ -26,7 +26,7 @@ namespace Minecraft_Sons_1._0
 
         private void bntAbrir_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("");
         }
     }
 }
