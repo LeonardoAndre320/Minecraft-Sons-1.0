@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aviso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aviso.Designer.cs">
+      <DependentUpon>Aviso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Carregando.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Aviso.resx">
+      <DependentUpon>Aviso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Carregando.resx">
       <DependentUpon>Carregando.cs</DependentUpon>
     </EmbeddedResource>
