@@ -35,16 +35,17 @@
             this.bntNovo = new System.Windows.Forms.Button();
             this.bntAbrir = new System.Windows.Forms.Button();
             this.GrupoRecentes = new System.Windows.Forms.GroupBox();
-            this.lblR1 = new System.Windows.Forms.Label();
-            this.lblR2 = new System.Windows.Forms.Label();
-            this.lblR3 = new System.Windows.Forms.Label();
-            this.lblR4 = new System.Windows.Forms.Label();
-            this.lblR5 = new System.Windows.Forms.Label();
-            this.lblR6 = new System.Windows.Forms.Label();
-            this.lblR7 = new System.Windows.Forms.Label();
-            this.lblR8 = new System.Windows.Forms.Label();
-            this.lblR9 = new System.Windows.Forms.Label();
             this.lblR10 = new System.Windows.Forms.Label();
+            this.lblR9 = new System.Windows.Forms.Label();
+            this.lblR8 = new System.Windows.Forms.Label();
+            this.lblR7 = new System.Windows.Forms.Label();
+            this.lblR6 = new System.Windows.Forms.Label();
+            this.lblR5 = new System.Windows.Forms.Label();
+            this.lblR4 = new System.Windows.Forms.Label();
+            this.lblR3 = new System.Windows.Forms.Label();
+            this.lblR2 = new System.Windows.Forms.Label();
+            this.lblR1 = new System.Windows.Forms.Label();
+            this.Buscador = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ImagemInicial)).BeginInit();
             this.GrupoRecentes.SuspendLayout();
             this.SuspendLayout();
@@ -105,77 +106,14 @@
             this.GrupoRecentes.TabStop = false;
             this.GrupoRecentes.Text = "Recentes(0)";
             // 
-            // lblR1
+            // lblR10
             // 
-            this.lblR1.AutoSize = true;
-            this.lblR1.Location = new System.Drawing.Point(7, 20);
-            this.lblR1.Name = "lblR1";
-            this.lblR1.Size = new System.Drawing.Size(68, 13);
-            this.lblR1.TabIndex = 0;
-            this.lblR1.Text = "Recente 1/0";
-            // 
-            // lblR2
-            // 
-            this.lblR2.AutoSize = true;
-            this.lblR2.Location = new System.Drawing.Point(7, 33);
-            this.lblR2.Name = "lblR2";
-            this.lblR2.Size = new System.Drawing.Size(57, 13);
-            this.lblR2.TabIndex = 0;
-            this.lblR2.Text = "Recente 2";
-            // 
-            // lblR3
-            // 
-            this.lblR3.AutoSize = true;
-            this.lblR3.Location = new System.Drawing.Point(7, 46);
-            this.lblR3.Name = "lblR3";
-            this.lblR3.Size = new System.Drawing.Size(57, 13);
-            this.lblR3.TabIndex = 0;
-            this.lblR3.Text = "Recente 3";
-            // 
-            // lblR4
-            // 
-            this.lblR4.AutoSize = true;
-            this.lblR4.Location = new System.Drawing.Point(7, 59);
-            this.lblR4.Name = "lblR4";
-            this.lblR4.Size = new System.Drawing.Size(57, 13);
-            this.lblR4.TabIndex = 0;
-            this.lblR4.Text = "Recente 4";
-            // 
-            // lblR5
-            // 
-            this.lblR5.AutoSize = true;
-            this.lblR5.Location = new System.Drawing.Point(7, 72);
-            this.lblR5.Name = "lblR5";
-            this.lblR5.Size = new System.Drawing.Size(57, 13);
-            this.lblR5.TabIndex = 0;
-            this.lblR5.Text = "Recente 5";
-            // 
-            // lblR6
-            // 
-            this.lblR6.AutoSize = true;
-            this.lblR6.Location = new System.Drawing.Point(7, 87);
-            this.lblR6.Name = "lblR6";
-            this.lblR6.Size = new System.Drawing.Size(57, 13);
-            this.lblR6.TabIndex = 0;
-            this.lblR6.Text = "Recente 6";
-            // 
-            // lblR7
-            // 
-            this.lblR7.AutoSize = true;
-            this.lblR7.Location = new System.Drawing.Point(7, 100);
-            this.lblR7.Name = "lblR7";
-            this.lblR7.Size = new System.Drawing.Size(57, 13);
-            this.lblR7.TabIndex = 0;
-            this.lblR7.Text = "Recente 7";
-            // 
-            // lblR8
-            // 
-            this.lblR8.AutoSize = true;
-            this.lblR8.Location = new System.Drawing.Point(7, 113);
-            this.lblR8.Name = "lblR8";
-            this.lblR8.Size = new System.Drawing.Size(57, 13);
-            this.lblR8.TabIndex = 0;
-            this.lblR8.Text = "Recente 8";
+            this.lblR10.AutoSize = true;
+            this.lblR10.Location = new System.Drawing.Point(7, 139);
+            this.lblR10.Name = "lblR10";
+            this.lblR10.Size = new System.Drawing.Size(63, 13);
+            this.lblR10.TabIndex = 0;
+            this.lblR10.Text = "Recente 10";
             // 
             // lblR9
             // 
@@ -186,14 +124,81 @@
             this.lblR9.TabIndex = 0;
             this.lblR9.Text = "Recente 9";
             // 
-            // lblR10
+            // lblR8
             // 
-            this.lblR10.AutoSize = true;
-            this.lblR10.Location = new System.Drawing.Point(7, 139);
-            this.lblR10.Name = "lblR10";
-            this.lblR10.Size = new System.Drawing.Size(63, 13);
-            this.lblR10.TabIndex = 0;
-            this.lblR10.Text = "Recente 10";
+            this.lblR8.AutoSize = true;
+            this.lblR8.Location = new System.Drawing.Point(7, 113);
+            this.lblR8.Name = "lblR8";
+            this.lblR8.Size = new System.Drawing.Size(57, 13);
+            this.lblR8.TabIndex = 0;
+            this.lblR8.Text = "Recente 8";
+            // 
+            // lblR7
+            // 
+            this.lblR7.AutoSize = true;
+            this.lblR7.Location = new System.Drawing.Point(7, 100);
+            this.lblR7.Name = "lblR7";
+            this.lblR7.Size = new System.Drawing.Size(57, 13);
+            this.lblR7.TabIndex = 0;
+            this.lblR7.Text = "Recente 7";
+            // 
+            // lblR6
+            // 
+            this.lblR6.AutoSize = true;
+            this.lblR6.Location = new System.Drawing.Point(7, 87);
+            this.lblR6.Name = "lblR6";
+            this.lblR6.Size = new System.Drawing.Size(57, 13);
+            this.lblR6.TabIndex = 0;
+            this.lblR6.Text = "Recente 6";
+            // 
+            // lblR5
+            // 
+            this.lblR5.AutoSize = true;
+            this.lblR5.Location = new System.Drawing.Point(7, 72);
+            this.lblR5.Name = "lblR5";
+            this.lblR5.Size = new System.Drawing.Size(57, 13);
+            this.lblR5.TabIndex = 0;
+            this.lblR5.Text = "Recente 5";
+            // 
+            // lblR4
+            // 
+            this.lblR4.AutoSize = true;
+            this.lblR4.Location = new System.Drawing.Point(7, 59);
+            this.lblR4.Name = "lblR4";
+            this.lblR4.Size = new System.Drawing.Size(57, 13);
+            this.lblR4.TabIndex = 0;
+            this.lblR4.Text = "Recente 4";
+            // 
+            // lblR3
+            // 
+            this.lblR3.AutoSize = true;
+            this.lblR3.Location = new System.Drawing.Point(7, 46);
+            this.lblR3.Name = "lblR3";
+            this.lblR3.Size = new System.Drawing.Size(57, 13);
+            this.lblR3.TabIndex = 0;
+            this.lblR3.Text = "Recente 3";
+            // 
+            // lblR2
+            // 
+            this.lblR2.AutoSize = true;
+            this.lblR2.Location = new System.Drawing.Point(7, 33);
+            this.lblR2.Name = "lblR2";
+            this.lblR2.Size = new System.Drawing.Size(57, 13);
+            this.lblR2.TabIndex = 0;
+            this.lblR2.Text = "Recente 2";
+            // 
+            // lblR1
+            // 
+            this.lblR1.AutoSize = true;
+            this.lblR1.Location = new System.Drawing.Point(7, 20);
+            this.lblR1.Name = "lblR1";
+            this.lblR1.Size = new System.Drawing.Size(68, 13);
+            this.lblR1.TabIndex = 0;
+            this.lblR1.Text = "Recente 1/0";
+            // 
+            // Buscador
+            // 
+            this.Buscador.FileName = "openFileDialog1";
             // 
             // TelaInicial
             // 
@@ -234,6 +239,7 @@
         private System.Windows.Forms.Label lblR3;
         private System.Windows.Forms.Label lblR2;
         private System.Windows.Forms.Label lblR1;
+        private System.Windows.Forms.OpenFileDialog Buscador;
     }
 }
 

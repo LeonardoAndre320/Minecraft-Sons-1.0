@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carregando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Carregando.Designer.cs">
+      <DependentUpon>Carregando.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +59,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Carregando.resx">
+      <DependentUpon>Carregando.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
     </EmbeddedResource>
