@@ -41,9 +41,10 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(13, 13);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(47, 20);
+            this.lblTitulo.Size = new System.Drawing.Size(462, 20);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Titulo";
+            this.lblTitulo.Text = "Titulo---------------------------------------------------------------------------" +
+    "--------";
             // 
             // lblMensagem
             // 

@@ -39,9 +39,9 @@
             this.lblPorcentos.ForeColor = System.Drawing.Color.White;
             this.lblPorcentos.Location = new System.Drawing.Point(13, 13);
             this.lblPorcentos.Name = "lblPorcentos";
-            this.lblPorcentos.Size = new System.Drawing.Size(144, 20);
+            this.lblPorcentos.Size = new System.Drawing.Size(163, 20);
             this.lblPorcentos.TabIndex = 0;
-            this.lblPorcentos.Text = "Carregando(100%)";
+            this.lblPorcentos.Text = "Carregando(batata%)";
             // 
             // Barra
             // 
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(424, 81);
             this.Controls.Add(this.Barra);
             this.Controls.Add(this.lblPorcentos);

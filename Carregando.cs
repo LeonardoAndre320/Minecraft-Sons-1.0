@@ -18,16 +18,18 @@ namespace Minecraft_Sons_1._0
         }
 
         int Porcentagem;
-        public void Carregar(int Inicio, int Final)//Barra 400x10
+        public static void Carregar(int Inicio, int Final)//Barra 400x10
         {
+            Carregando c = new Carregando();
             /// 50 - 100
             /// 20 - x
             ///
-            Porcentagem = Inicio * 100 / Final;
-            lblPorcentos.Text = "Carregando:" + Porcentagem + "%";
-            Barra.Value = Porcentagem;
+            c.ShowDialog();
+            c.Porcentagem = Inicio * 100 / Final;
+            c.lblPorcentos.Text = "Carregando:" + c.Porcentagem + "%";
+            c.Barra.Value = c.Porcentagem;
 
-            if(Porcentagem >= 100) { Close(); }
+            if(c.Porcentagem >= 100) { c.Close(); }
         }
     }
 }
