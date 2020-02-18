@@ -17,6 +17,7 @@ namespace Minecraft_Sons_1._0
             InitializeComponent();
         }
 
+        string retorno = "";
         public bool mostrar(string Titulo, string Mensagem, string SAG = "Simples,Aviso,Grave", bool pergunta = false,string resposta = "sim/não")
         {
             lblTitulo.Text = Titulo;
@@ -30,7 +31,22 @@ namespace Minecraft_Sons_1._0
                 case "grave": BackColor = Color.IndianRed; break;
                 default: BackColor = Color.SteelBlue; break;
             }
-            return false;
+
+            if(pergunta)
+            {
+                bnt1.Visible = true;
+                bnt1.Enabled = true;
+                bnt2.Text = "Sim";
+            }
+            else
+            {
+                bnt1.Visible = false;
+                bnt1.Enabled = false;
+                bnt2.Text = "OK";
+            }
+
+            
+            
         }
 
         //case "simples":  A.BackColor = Color.SteelBlue; break;
