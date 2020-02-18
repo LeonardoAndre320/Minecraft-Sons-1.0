@@ -17,8 +17,10 @@ namespace Minecraft_Sons_1._0
         public TelaInicial()
         {
             InitializeComponent();
+            ChecarRecentes();
             ImagemInicial.Image = ListaImagens.Images[0];//Coloca a imagem da caixa
         }
+        Aviso Aviso = new Aviso();//Atalho para aviso
 
         private void bntNovo_Click(object sender, EventArgs e)
         {
@@ -50,16 +52,33 @@ namespace Minecraft_Sons_1._0
                 {
                     //remover dados a partir da pasta sem alterar nada
                 }
+                else if(extencao == "mcs")
+                {
+                    //Dai tem que ver como fazer
+                }
                 else
                 {
+                    Aviso.mostrar("Não conheço esse arquivo", "O arquivo que você escolheu não é nem .zip, .mcmeta ou .mcs, ele é " + extencao + ". \nEscolha novamente.", "Media");
                 }
-                Aviso Aviso = new Aviso();
-                Aviso.mostrar("Teste titulo","1 \n 2 \n 3 \n 4 \n 5 \n 6 ","oi",false,"batata");
-                
-                if(Aviso.mostrar("Continuar","Sim/Não","Grave",true))
-                {
-                    MessageBox.Show("sim");
-                }else { MessageBox.Show("não"); }
+            }
+        }
+
+        public void ChecarRecentes()
+        {
+            if(!File.Exists(Directory.GetCurrentDirectory() + "//Recentes.txt"))
+            {
+                GrupoRecentes.Text = "Recentes(0)";
+
+                lblR1.Visible = false;
+                lblR2.Visible = false;
+                lblR3.Visible = false;
+                lblR4.Visible = false;
+                lblR5.Visible = false;
+                lblR6.Visible = false;
+                lblR7.Visible = false;
+                lblR8.Visible = false;
+                lblR9.Visible = false;
+                lblR10.Visible = false;
             }
         }
     }
