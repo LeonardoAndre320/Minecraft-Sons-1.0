@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblPorcentos = new System.Windows.Forms.Label();
             this.Barra = new System.Windows.Forms.ProgressBar();
+            this.temporizador = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblPorcentos
@@ -50,6 +52,10 @@
             this.Barra.Size = new System.Drawing.Size(400, 10);
             this.Barra.TabIndex = 1;
             // 
+            // temporizador
+            // 
+            this.temporizador.Tick += new System.EventHandler(this.temporizador_Tick);
+            // 
             // Carregando
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -63,6 +69,7 @@
             this.MinimizeBox = false;
             this.Name = "Carregando";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -73,5 +80,6 @@
 
         private System.Windows.Forms.Label lblPorcentos;
         private System.Windows.Forms.ProgressBar Barra;
+        private System.Windows.Forms.Timer temporizador;
     }
 }

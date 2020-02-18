@@ -18,18 +18,27 @@ namespace Minecraft_Sons_1._0
         }
 
         int Porcentagem;
-        public static void Carregar(int Inicio, int Final)//Barra 400x10
+        public void Carregar(int Inicio, int Final)//Barra 400x10
         {
-            Carregando c = new Carregando();
+            ///Calculo para eu lebrar de como se faz conta de porcentagem
             /// 50 - 100
             /// 20 - x
-            ///
-            c.ShowDialog();
-            c.Porcentagem = Inicio * 100 / Final;
-            c.lblPorcentos.Text = "Carregando:" + c.Porcentagem + "%";
-            c.Barra.Value = c.Porcentagem;
+            
+            Porcentagem = Inicio * 100 / Final;
 
-            if(c.Porcentagem >= 100) { c.Close(); }
+            lblPorcentos.Text = "Carregando:" + Porcentagem + "%";
+            Barra.Value = Porcentagem;//Exibem os dados
+            temporizador.Enabled = true;
+            ShowDialog();
+        }
+
+        private void temporizador_Tick(object sender, EventArgs e)
+        {
+            if (Porcentagem >= 100)
+            {
+                temporizador.Enabled = false;
+                Hide();//Quando termina fecha, tinha que ser em um timer, sei la o por que
+            }
         }
     }
 }

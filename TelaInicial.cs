@@ -35,7 +35,8 @@ namespace Minecraft_Sons_1._0
 
             if (Buscador.FileName != "")
             {
-                //Carregando.Carregar(1, 1);
+                Carregando c = new Carregando();
+                c.Carregar(1, 1);
 
                 string LocalArquivo = Buscador.FileName;
                 string extencao = Path.GetExtension(LocalArquivo);

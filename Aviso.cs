@@ -23,11 +23,13 @@ namespace Minecraft_Sons_1._0
         //Organiza os dados e mostra na tela
         public bool mostrar(string Titulo, string Mensagem, string SAG = "Simples,Media,Grave", bool pergunta = false,string resposta = "sim/não")
         {
+            Size = new Size(500, 167);//Volta ao tamanho normal
+
             lblTitulo.Text = Titulo;
             lblMensagem.Text = Mensagem;
             Pergunta = pergunta;
 
-            switch (SAG)
+            switch (SAG)//Cores de fundo
             {
                 case "Simples": BackColor = Color.SteelBlue; break;
                 case "Media": BackColor = Color.Goldenrod; break;
@@ -35,7 +37,7 @@ namespace Minecraft_Sons_1._0
                 default: BackColor = Color.SteelBlue; break;
             }
 
-            if(pergunta)
+            if(pergunta)//Muda os botoes dependendo do tipo de aviso
             {
                 bnt1.Visible = true;
                 bnt1.Enabled = true;
@@ -73,7 +75,7 @@ namespace Minecraft_Sons_1._0
                 break;
             }
 
-            bool R = false;
+            bool R = false;//retorno
             if(retorno == "s") { R = true; }
             if(retorno == "n") { R = false; }
             Hide();
