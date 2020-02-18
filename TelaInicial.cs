@@ -54,16 +54,9 @@ namespace Minecraft_Sons_1._0
                 }
                 else
                 {
-                    Tarefas = 10;
                 }
-                Tarefas = 10 / 2;
-                Aviso.mostrar("ola", "oi");
-
-                Aviso.mostrar("Teste1", "Teste de mensagem");
-
-                Aviso.mostrar("Aviso","erro","media");
-
-                Aviso.mostrar("Erro", "Erro fatal","grave");
+                Aviso Aviso = new Aviso();
+                Aviso.mostrar("2", "2","oi",true,"batata");
             }
         }
     }
