@@ -41,10 +41,9 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(13, 13);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(462, 20);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Titulo---------------------------------------------------------------------------" +
-    "--------";
+            this.lblTitulo.Size = new System.Drawing.Size(47, 20);
+            this.lblTitulo.TabIndex = 3;
+            this.lblTitulo.Text = "Titulo";
             // 
             // lblMensagem
             // 
@@ -53,7 +52,7 @@
             this.lblMensagem.Location = new System.Drawing.Point(14, 33);
             this.lblMensagem.Name = "lblMensagem";
             this.lblMensagem.Size = new System.Drawing.Size(59, 13);
-            this.lblMensagem.TabIndex = 1;
+            this.lblMensagem.TabIndex = 2;
             this.lblMensagem.Text = "Mensagem";
             // 
             // bnt2
@@ -61,7 +60,7 @@
             this.bnt2.Location = new System.Drawing.Point(397, 63);
             this.bnt2.Name = "bnt2";
             this.bnt2.Size = new System.Drawing.Size(75, 23);
-            this.bnt2.TabIndex = 2;
+            this.bnt2.TabIndex = 1;
             this.bnt2.Text = "OK";
             this.bnt2.UseVisualStyleBackColor = true;
             this.bnt2.Click += new System.EventHandler(this.bnt2_Click);
@@ -71,7 +70,7 @@
             this.bnt1.Location = new System.Drawing.Point(316, 63);
             this.bnt1.Name = "bnt1";
             this.bnt1.Size = new System.Drawing.Size(75, 23);
-            this.bnt1.TabIndex = 3;
+            this.bnt1.TabIndex = 0;
             this.bnt1.Text = "Não";
             this.bnt1.UseVisualStyleBackColor = true;
             this.bnt1.Click += new System.EventHandler(this.bnt1_Click);

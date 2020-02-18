@@ -19,7 +19,9 @@ namespace Minecraft_Sons_1._0
 
         string retorno = "";
         bool Pergunta = false;
-        public bool mostrar(string Titulo, string Mensagem, string SAG = "Simples,Aviso,Grave", bool pergunta = false,string resposta = "sim/não")
+    
+        //Organiza os dados e mostra na tela
+        public bool mostrar(string Titulo, string Mensagem, string SAG = "Simples,Media,Grave", bool pergunta = false,string resposta = "sim/não")
         {
             lblTitulo.Text = Titulo;
             lblMensagem.Text = Mensagem;
@@ -27,9 +29,9 @@ namespace Minecraft_Sons_1._0
 
             switch (SAG)
             {
-                case "simples": BackColor = Color.SteelBlue; break;
-                case "media": BackColor = Color.Goldenrod; break;
-                case "grave": BackColor = Color.IndianRed; break;
+                case "Simples": BackColor = Color.SteelBlue; break;
+                case "Media": BackColor = Color.Goldenrod; break;
+                case "Grave": BackColor = Color.IndianRed; break;
                 default: BackColor = Color.SteelBlue; break;
             }
 
@@ -65,6 +67,7 @@ namespace Minecraft_Sons_1._0
             bnt2.Location = new Point(Size.Width - 103, Size.Height - 74);
 
             ShowDialog();
+            bnt1.Select();
             for (;resposta != "";)
             {
                 break;
@@ -73,23 +76,20 @@ namespace Minecraft_Sons_1._0
             bool R = false;
             if(retorno == "s") { R = true; }
             if(retorno == "n") { R = false; }
-            Dispose(true);
+            Hide();
             return R;
         }
 
-        //case "simples":  A.BackColor = Color.SteelBlue; break;
-        //case "media":  A.BackColor = Color.Goldenrod; break;
-        //case "grave":  A.BackColor = Color.IndianRed; break;
-
+        //Tive que usar o HIDE para "fechar", o close tava dando probelma
         private void bnt1_Click(object sender, EventArgs e)
         {
-            if(Pergunta) { retorno = "n"; Dispose(true); }
+            if(Pergunta) { retorno = "n"; Hide(); }
         }
 
         private void bnt2_Click(object sender, EventArgs e)
         {
-            if(Pergunta) { retorno = "s"; Dispose(true); }
-            else { Dispose(true); }
+            if(Pergunta) { retorno = "s"; Hide(); }
+            else { Hide(); }
         }
     }
 }
