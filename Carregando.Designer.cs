@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblPorcentos = new System.Windows.Forms.Label();
-            this.Barra = new System.Windows.Forms.ProgressBar();
+            this.Pontos = new System.Windows.Forms.ProgressBar();
             this.temporizador = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -45,12 +45,12 @@
             this.lblPorcentos.TabIndex = 0;
             this.lblPorcentos.Text = "Carregando(batata%)";
             // 
-            // Barra
+            // Pontos
             // 
-            this.Barra.Location = new System.Drawing.Point(12, 59);
-            this.Barra.Name = "Barra";
-            this.Barra.Size = new System.Drawing.Size(400, 10);
-            this.Barra.TabIndex = 1;
+            this.Pontos.Location = new System.Drawing.Point(12, 59);
+            this.Pontos.Name = "Pontos";
+            this.Pontos.Size = new System.Drawing.Size(400, 10);
+            this.Pontos.TabIndex = 1;
             // 
             // temporizador
             // 
@@ -62,7 +62,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(424, 81);
-            this.Controls.Add(this.Barra);
+            this.Controls.Add(this.Pontos);
             this.Controls.Add(this.lblPorcentos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -79,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblPorcentos;
-        private System.Windows.Forms.ProgressBar Barra;
         private System.Windows.Forms.Timer temporizador;
+        public System.Windows.Forms.ProgressBar Pontos;
     }
 }

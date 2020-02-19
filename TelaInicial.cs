@@ -35,27 +35,26 @@ namespace Minecraft_Sons_1._0
             Buscador.FileName = "";
             Buscador.Filter = "Arquivo minecraft|*.mcmeta|Arquivos ZIP|*.zip|Todos os arquivos|*.*";
             Buscador.ShowDialog();
-
-            Carregando.Etapa = 1;
-            Carregando.Total = 4;
-            Carregando.Carregar();
+            Carregando C = new Carregando();
+            C.Total = 4;
+            C.Etapas = 1;
+            C.Show();
 
             if (Buscador.FileName != "")
             {
-
                 string LocalArquivo = Buscador.FileName;
                 string extencao = Path.GetExtension(LocalArquivo);
                 string NomeArquivo = Path.GetFileNameWithoutExtension(LocalArquivo);
-                Carregando.Etapa = 2;
-                if(extencao == ".zip")
+                C.Etapas = 2;
+                if (extencao == ".zip")
                 {
                     if(!Directory.Exists(Directory.GetCurrentDirectory() + "//Temp"))
                     {
                         Directory.CreateDirectory(Directory.GetCurrentDirectory() + "//Temp");
                     }
-                    Carregando.Etapa = 3;
+                    C.Etapas = 3;
                     ZipFile.ExtractToDirectory(LocalArquivo, Directory.GetCurrentDirectory() + "//Temp");
-                    Carregando.Etapa = 4;
+                    C.Etapas = 4;
                     Aviso.mostrar("Concluido", "A operação terminou na pasta:" + Directory.GetCurrentDirectory() + "//Temp");
                 }
                 else if(extencao == ".mcmeta")
