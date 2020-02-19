@@ -38,7 +38,8 @@ namespace Minecraft_Sons_1._0
             if (Buscador.FileName != "")
             {
                 Carregando c = new Carregando();
-                c.Carregar(1, 1);
+                int Tarefas = 0;
+                c.Carregar(1, Tarefas);
 
                 string LocalArquivo = Buscador.FileName;
                 string extencao = Path.GetExtension(LocalArquivo);
@@ -46,7 +47,7 @@ namespace Minecraft_Sons_1._0
 
                 if(extencao == ".zip")
                 {
-                    //extrair arquivos e remover dados a partir de uma pasta temporaria
+
                 }
                 else if(extencao == ".mcmeta")
                 {
