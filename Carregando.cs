@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Minecraft_Sons_1._0
 {
@@ -16,30 +17,35 @@ namespace Minecraft_Sons_1._0
         public Carregando()
         {
             InitializeComponent();
-            Pontos.Value = 50;
-            temporizador.Enabled = true;
         }
         public int Etapas;
         public int Total;
-        private void Carregar()//Barra 400x10
+        public void Carregar()
         {
-            ///Calculo para eu lebrar de como se faz conta de porcentagem
-            /// 50 - 100
-            /// 20 - x
+            Thread T = new Thread(new ThreadStart(MostrarDados));
+            T.Name = "MostrarDados";
+            T.Start();
         }
 
-        private void temporizador_Tick(object sender, EventArgs e)
+        private void MostrarDados()
         {
-                Pontos.Maximum = Total;
-                Pontos.Value = Etapas;
+            ShowDialog();
+            while (Etapas != Total)
+            {
+                Barra.Maximum = Total;
+                Barra.Value = Etapas;
 
                 lblPorcentos.Text = "Carregando:" + Etapas * 100 / Total + "%";
 
-                if (Pontos.Value == Pontos.Maximum)
+                if (Barra.Value == Barra.Maximum)
                 {
-                    temporizador.Enabled = false;
+                    Barra.Value = 0;
+                    Barra.Maximum = 100;
                     Hide();
+                    break;
                 }
+                Thread.Sleep(1000);
+            }
         }
     }
 }
