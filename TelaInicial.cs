@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.IO.Compression;
 
 namespace Minecraft_Sons_1._0
 {
@@ -24,7 +25,7 @@ namespace Minecraft_Sons_1._0
 
         private void bntNovo_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void bntAbrir_Click(object sender, EventArgs e)
@@ -35,19 +36,27 @@ namespace Minecraft_Sons_1._0
             Buscador.Filter = "Arquivo minecraft|*.mcmeta|Arquivos ZIP|*.zip|Todos os arquivos|*.*";
             Buscador.ShowDialog();
 
+            Carregando.Etapa = 1;
+            Carregando.Total = 4;
+            Carregando.Carregar();
+
             if (Buscador.FileName != "")
             {
-                Carregando c = new Carregando();
-                int Tarefas = 0;
-                c.Carregar(1, Tarefas);
 
                 string LocalArquivo = Buscador.FileName;
                 string extencao = Path.GetExtension(LocalArquivo);
                 string NomeArquivo = Path.GetFileNameWithoutExtension(LocalArquivo);
-
+                Carregando.Etapa = 2;
                 if(extencao == ".zip")
                 {
-
+                    if(!Directory.Exists(Directory.GetCurrentDirectory() + "//Temp"))
+                    {
+                        Directory.CreateDirectory(Directory.GetCurrentDirectory() + "//Temp");
+                    }
+                    Carregando.Etapa = 3;
+                    ZipFile.ExtractToDirectory(LocalArquivo, Directory.GetCurrentDirectory() + "//Temp");
+                    Carregando.Etapa = 4;
+                    Aviso.mostrar("Concluido", "A operação terminou na pasta:" + Directory.GetCurrentDirectory() + "//Temp");
                 }
                 else if(extencao == ".mcmeta")
                 {
