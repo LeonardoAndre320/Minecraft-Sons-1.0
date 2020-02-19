@@ -30,8 +30,6 @@ namespace Minecraft_Sons_1._0
 
         private void temporizador_Tick(object sender, EventArgs e)
         {
-            if (Etapas != 0)
-            {
                 Pontos.Maximum = Total;
                 Pontos.Value = Etapas;
 
@@ -42,7 +40,6 @@ namespace Minecraft_Sons_1._0
                     temporizador.Enabled = false;
                     Hide();
                 }
-            }
         }
     }
 }

@@ -36,9 +36,9 @@ namespace Minecraft_Sons_1._0
             Buscador.Filter = "Arquivo minecraft|*.mcmeta|Arquivos ZIP|*.zip|Todos os arquivos|*.*";
             Buscador.ShowDialog();
             Carregando C = new Carregando();
+            C.ShowDialog();
             C.Total = 4;
             C.Etapas = 1;
-            C.Show();
 
             if (Buscador.FileName != "")
             {
