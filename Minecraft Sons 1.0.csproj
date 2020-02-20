@@ -52,11 +52,11 @@
     <Compile Include="Aviso.Designer.cs">
       <DependentUpon>Aviso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Carregando.cs">
+    <Compile Include="Carregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Carregando.Designer.cs">
-      <DependentUpon>Carregando.cs</DependentUpon>
+    <Compile Include="Carregar.Designer.cs">
+      <DependentUpon>Carregar.cs</DependentUpon>
     </Compile>
     <Compile Include="TelaInicial.cs">
       <SubType>Form</SubType>
@@ -69,8 +69,8 @@
     <EmbeddedResource Include="Aviso.resx">
       <DependentUpon>Aviso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Carregando.resx">
-      <DependentUpon>Carregando.cs</DependentUpon>
+    <EmbeddedResource Include="Carregar.resx">
+      <DependentUpon>Carregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>

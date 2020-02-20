@@ -1,6 +1,6 @@
 ﻿namespace Minecraft_Sons_1._0
 {
-    partial class Carregando
+    partial class Carregar
     {
         /// <summary>
         /// Required designer variable.
