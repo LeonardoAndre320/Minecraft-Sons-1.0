@@ -25,7 +25,7 @@ namespace Minecraft_Sons_1._0
 
         private void bntNovo_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("");
         }
 
         private void bntAbrir_Click(object sender, EventArgs e)
@@ -38,18 +38,24 @@ namespace Minecraft_Sons_1._0
 
             if (Buscador.FileName != "")
             {
+                Carregar c = new Carregar();
+                c.Etapa = 1;
+                c.Total = 4;
+
                 string LocalArquivo = Buscador.FileName;
                 string extencao = Path.GetExtension(LocalArquivo);
                 string NomeArquivo = Path.GetFileNameWithoutExtension(LocalArquivo);
 
+                c.Etapa = 3;
                 if (extencao == ".zip")
                 {
                     if(!Directory.Exists(Directory.GetCurrentDirectory() + "//Temp"))
                     {
                         Directory.CreateDirectory(Directory.GetCurrentDirectory() + "//Temp");
                     }
-
+                    c.Etapa = 3;
                     ZipFile.ExtractToDirectory(LocalArquivo, Directory.GetCurrentDirectory() + "//Temp");
+                    c.Etapa = 4;
                     Aviso.mostrar("Concluido", "A operação terminou na pasta:" + Directory.GetCurrentDirectory() + "//Temp");
                 }
                 else if(extencao == ".mcmeta")
