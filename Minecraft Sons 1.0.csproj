@@ -58,6 +58,7 @@
     <Compile Include="Carregar.Designer.cs">
       <DependentUpon>Carregar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FuncaoExtra.cs" />
     <Compile Include="TelaInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Arquivos\ImagensBlocos\" />
+    <Folder Include="Arquivos\ImagensItens\" />
     <Folder Include="Arquivos\ImagensMobs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

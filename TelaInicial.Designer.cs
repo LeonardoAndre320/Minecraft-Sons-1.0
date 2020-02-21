@@ -109,92 +109,112 @@
             // lblR10
             // 
             this.lblR10.AutoSize = true;
-            this.lblR10.Location = new System.Drawing.Point(7, 139);
+            this.lblR10.Location = new System.Drawing.Point(6, 133);
             this.lblR10.Name = "lblR10";
             this.lblR10.Size = new System.Drawing.Size(63, 13);
             this.lblR10.TabIndex = 0;
             this.lblR10.Text = "Recente 10";
+            this.lblR10.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR10.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR9
             // 
             this.lblR9.AutoSize = true;
-            this.lblR9.Location = new System.Drawing.Point(7, 126);
+            this.lblR9.Location = new System.Drawing.Point(6, 120);
             this.lblR9.Name = "lblR9";
             this.lblR9.Size = new System.Drawing.Size(57, 13);
             this.lblR9.TabIndex = 0;
             this.lblR9.Text = "Recente 9";
+            this.lblR9.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR9.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR8
             // 
             this.lblR8.AutoSize = true;
-            this.lblR8.Location = new System.Drawing.Point(7, 113);
+            this.lblR8.Location = new System.Drawing.Point(6, 107);
             this.lblR8.Name = "lblR8";
             this.lblR8.Size = new System.Drawing.Size(57, 13);
             this.lblR8.TabIndex = 0;
             this.lblR8.Text = "Recente 8";
+            this.lblR8.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR8.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR7
             // 
             this.lblR7.AutoSize = true;
-            this.lblR7.Location = new System.Drawing.Point(7, 100);
+            this.lblR7.Location = new System.Drawing.Point(6, 94);
             this.lblR7.Name = "lblR7";
             this.lblR7.Size = new System.Drawing.Size(57, 13);
             this.lblR7.TabIndex = 0;
             this.lblR7.Text = "Recente 7";
+            this.lblR7.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR7.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR6
             // 
             this.lblR6.AutoSize = true;
-            this.lblR6.Location = new System.Drawing.Point(7, 87);
+            this.lblR6.Location = new System.Drawing.Point(6, 81);
             this.lblR6.Name = "lblR6";
             this.lblR6.Size = new System.Drawing.Size(57, 13);
             this.lblR6.TabIndex = 0;
             this.lblR6.Text = "Recente 6";
+            this.lblR6.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR6.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR5
             // 
             this.lblR5.AutoSize = true;
-            this.lblR5.Location = new System.Drawing.Point(7, 72);
+            this.lblR5.Location = new System.Drawing.Point(6, 68);
             this.lblR5.Name = "lblR5";
             this.lblR5.Size = new System.Drawing.Size(57, 13);
             this.lblR5.TabIndex = 0;
             this.lblR5.Text = "Recente 5";
+            this.lblR5.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR5.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR4
             // 
             this.lblR4.AutoSize = true;
-            this.lblR4.Location = new System.Drawing.Point(7, 59);
+            this.lblR4.Location = new System.Drawing.Point(6, 55);
             this.lblR4.Name = "lblR4";
             this.lblR4.Size = new System.Drawing.Size(57, 13);
             this.lblR4.TabIndex = 0;
             this.lblR4.Text = "Recente 4";
+            this.lblR4.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR4.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR3
             // 
             this.lblR3.AutoSize = true;
-            this.lblR3.Location = new System.Drawing.Point(7, 46);
+            this.lblR3.Location = new System.Drawing.Point(6, 42);
             this.lblR3.Name = "lblR3";
             this.lblR3.Size = new System.Drawing.Size(57, 13);
             this.lblR3.TabIndex = 0;
             this.lblR3.Text = "Recente 3";
+            this.lblR3.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR3.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR2
             // 
             this.lblR2.AutoSize = true;
-            this.lblR2.Location = new System.Drawing.Point(7, 33);
+            this.lblR2.Location = new System.Drawing.Point(6, 29);
             this.lblR2.Name = "lblR2";
             this.lblR2.Size = new System.Drawing.Size(57, 13);
             this.lblR2.TabIndex = 0;
             this.lblR2.Text = "Recente 2";
+            this.lblR2.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR2.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // lblR1
             // 
             this.lblR1.AutoSize = true;
-            this.lblR1.Location = new System.Drawing.Point(7, 20);
+            this.lblR1.Location = new System.Drawing.Point(6, 16);
             this.lblR1.Name = "lblR1";
-            this.lblR1.Size = new System.Drawing.Size(68, 13);
+            this.lblR1.Size = new System.Drawing.Size(57, 13);
             this.lblR1.TabIndex = 0;
-            this.lblR1.Text = "Recente 1/0";
+            this.lblR1.Text = "Recente 1";
+            this.lblR1.MouseEnter += new System.EventHandler(this.MudarMouseE);
+            this.lblR1.MouseLeave += new System.EventHandler(this.MudarMouseS);
             // 
             // Buscador
             // 
