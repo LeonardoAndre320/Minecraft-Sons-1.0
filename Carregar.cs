@@ -17,17 +17,19 @@ namespace Minecraft_Sons_1._0
         {
             InitializeComponent();
         }
-        public static void Mostrar()
+
+        public static void Abrir()
         {
             Carregar c = new Carregar();
-            c.TopMost = true;
             c.Show();
         }
 
-        public static void Esconder()
+        public static void Fechar()
         {
-            Carregar c = new Carregar();
-            c.Hide();
+            while (Application.OpenForms["Carregar"] != null)
+            {
+                Application.OpenForms["Carregar"].Close();
+            }
         }
     }
 }
