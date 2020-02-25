@@ -13,29 +13,48 @@ namespace Minecraft_Sons_1._0
         public string[,] LerTextura(string Local)
         {
             //Nome//Tipo//Local
-            string[,] Dados = new string[2,2];
+            Local = Path.GetDirectoryName(Local);//muda para a pasta do arquivo
+            string[] Json = File.ReadAllLines(Local + "//assets//minecraft//sounds.json");
+            string[,] Dados = new string[3,3];
+            bool Erro = false;
 
-            #region Vendo se os arquivos existem
+            #region Vendo se os arquivos existem e se é o arquivo esperado
             Dados[0, 0] = "s";Dados[0, 1] = "s";
-            if (!Directory.Exists(Local + "//assets//minecraft//sounds"))
-            {
-                Dados[0,0] = "n";
-                //return Dados;
-            }
             if (!File.Exists(Local + "//assets//minecraft//sounds.json"))
             {
+                Dados[0, 0] = "n";
+                Erro = true;
+            } else
+            if (!Directory.Exists(Local + "//assets//minecraft//sounds"))
+            {
                 Dados[0, 1] = "n";
-                //return Dados;
+                Erro = true;
+            } else
+            if (Json.Count() % 2 != 0)
+            {
+                Dados[0, 2] = "n";
+                Erro = true;
+            } else
+            if (Json[0] != "{")
+            {
+                Dados[0, 2] = "n";
+                Erro = true;
+            } else
+            if (Json[Json.Count() - 1] != "}")
+            {
+                Dados[0, 2] = "n";
+                Erro = true;
             }
             #endregion
-            MessageBox.Show("aqui");
-            LerJson(Path.GetDirectoryName(Local) + "//assets//minecraft//sounds.json");
+            if (Erro == false)
+            {
+                LerJson(Local + "//assets//minecraft//sounds.json");
+            }
             return Dados;
         }
 
         private string[,] LerJson(string LocalJson)
         {
-            string[,] Retorno = new string[2,2];
             string[] Jsoni = File.ReadAllLines(LocalJson);//Lê todos as linhas
             List<string> Json = new List<string>(Jsoni);//Converte para editar mais facil
 
@@ -71,7 +90,15 @@ namespace Minecraft_Sons_1._0
 
             for(int i = 0; i < Parte1.Count; i++)
             {
-                MessageBox.Show(Parte1[i] + "" + Parte2[i]);
+                MessageBox.Show(Parte1[i] + "[----]" + Parte2[i]);
+            }
+
+            string[,] Retorno = new string[Parte1.Count,2];
+
+            for(int i = 0; i < Parte1.Count;i++)
+            {
+                Retorno[i, 0] = Parte1[i];
+                Retorno[i, 1] = Parte2[i];
             }
             return Retorno;
         }
