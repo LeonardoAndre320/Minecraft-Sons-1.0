@@ -53,7 +53,8 @@ namespace Minecraft_Sons_1._0
                 }
                 else if(extencao == ".mcmeta")
                 {
-                    //remover dados a partir da pasta sem alterar nada
+                    FuncaoExtra fe = new FuncaoExtra();
+                    fe.LerTextura(LocalArquivo);
                 }
                 else if(extencao == "mcs")
                 {
