@@ -12,11 +12,12 @@ namespace Minecraft_Sons_1._0
     {
         public string[,] LerTextura(string Local)
         {
-            //Nome//Tipo//Local
+            //0   //1   //2    //3
+            //Nome//Tipo//Local//original
             Local = Path.GetDirectoryName(Local);//muda para a pasta do arquivo
             string[] Json = File.ReadAllLines(Local + "\\assets\\minecraft\\sounds.json");
-            string[,] DadosJson;
-            string[,] Dados = new string[3,3];
+            string[,] DadosJson = new string[1000,1000];
+            string[,] Dados = new string[3,4];
             bool Erro = false;
 
             #region Vendo se os arquivos existem e se é o arquivo esperado
@@ -50,7 +51,9 @@ namespace Minecraft_Sons_1._0
 
             if (Erro == false)
             {
-                DadosJson = LerJson(Local + "\\assets\\minecraft\\sounds.json");
+                string[,] DadosTemporarios = LerJson(Local + "\\assets\\minecraft\\sounds.json");
+                DadosJson = new string[DadosTemporarios.Length,3];
+                DadosJson = DadosTemporarios;
                 //Nome//Tipo
             }
 
@@ -61,11 +64,39 @@ namespace Minecraft_Sons_1._0
             for(int i = 0; i< LocalTodosSons.Count; i++)//Tira so o nome dos locais
             {
                 NomesSons.Add(Path.GetFileNameWithoutExtension(LocalTodosSons[i]));
-                MessageBox.Show(NomesSons[i]);
             }
+            #endregion
 
-            
+            #region Define e organiza os dados no array
 
+            bool completo = false;
+            int NumeroDados = 1;
+            int Numero = 0;
+            for(int etapa = 0;!completo;etapa++)
+            {
+                String NomeJson = DadosJson[Numero, 0];
+                String TipoJson = DadosJson[Numero, 1];
+                String NomeArquivo = NomesSons[etapa];
+                String LocalArquivo = LocalTodosSons[etapa];
+
+                if(NomeJson == NomeArquivo)
+                {
+                    Dados[NumeroDados, 0] = NomeJson;
+                    Dados[NumeroDados, 1] = TipoJson;
+                    Dados[NumeroDados, 2] = LocalArquivo;
+                    Dados[NumeroDados, 3] = "Original";
+                }
+                if(etapa == NomesSons.Count)
+                {
+                    Numero++;
+                }
+
+                if (etapa == NomesSons.Count && Numero == DadosJson.Length)
+                {
+                    completo = true;
+                }
+            }
+            MessageBox.Show("Agora vai");
             #endregion
 
             return Dados;
