@@ -14,18 +14,19 @@ namespace Minecraft_Sons_1._0
         {
             //Nome//Tipo//Local
             Local = Path.GetDirectoryName(Local);//muda para a pasta do arquivo
-            string[] Json = File.ReadAllLines(Local + "//assets//minecraft//sounds.json");
+            string[] Json = File.ReadAllLines(Local + "\\assets\\minecraft\\sounds.json");
+            string[,] DadosJson;
             string[,] Dados = new string[3,3];
             bool Erro = false;
 
             #region Vendo se os arquivos existem e se é o arquivo esperado
             Dados[0, 0] = "s";Dados[0, 1] = "s";
-            if (!File.Exists(Local + "//assets//minecraft//sounds.json"))
+            if (!File.Exists(Local + "\\assets\\minecraft\\sounds.json"))
             {
                 Dados[0, 0] = "n";
                 Erro = true;
             } else
-            if (!Directory.Exists(Local + "//assets//minecraft//sounds"))
+            if (!Directory.Exists(Local + "\\assets\\minecraft\\sounds"))
             {
                 Dados[0, 1] = "n";
                 Erro = true;
@@ -46,10 +47,27 @@ namespace Minecraft_Sons_1._0
                 Erro = true;
             }
             #endregion
+
             if (Erro == false)
             {
-                LerJson(Local + "//assets//minecraft//sounds.json");
+                DadosJson = LerJson(Local + "\\assets\\minecraft\\sounds.json");
+                //Nome//Tipo
             }
+
+            #region Obtem o nome e o local de todos os sons da textura
+            List<string> LocalTodosSons = new List<string>(Directory.GetFiles(Local + "\\assets\\minecraft\\sounds"));
+            List<string> NomesSons = new List<string>(LocalTodosSons.Count);
+
+            for(int i = 0; i< LocalTodosSons.Count; i++)//Tira so o nome dos locais
+            {
+                NomesSons.Add(Path.GetFileNameWithoutExtension(LocalTodosSons[i]));
+                MessageBox.Show(NomesSons[i]);
+            }
+
+            
+
+            #endregion
+
             return Dados;
         }
 
@@ -86,12 +104,11 @@ namespace Minecraft_Sons_1._0
                 Parte1.Add(P1);
                 Parte2.Add(P2);
             }
-            //MessageBox.Show(Parte1[0] + "888" + Parte2[0]);
 
-            for(int i = 0; i < Parte1.Count; i++)
+            /*for(int i = 0; i < Parte1.Count; i++)
             {
                 MessageBox.Show(Parte1[i] + "[----]" + Parte2[i]);
-            }
+            }*/
 
             string[,] Retorno = new string[Parte1.Count,2];
 
