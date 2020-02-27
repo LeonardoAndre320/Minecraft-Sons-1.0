@@ -23,7 +23,7 @@ namespace Minecraft_Sons_1._0
             bool Erro = false;
 
             #region Vendo se os arquivos existem e se é o arquivo esperado
-            DadosT[0, 0] = "s"; DadosT[0, 1] = "s"; DadosT[0, 2] = "s"; DadosT[0, 3] = "s";
+            DadosT[0, 0] = "s"; DadosT[0, 1] = "s"; DadosT[0, 2] = "s"; DadosT[0, 3] = "s";//Já define um valor, só muda se tiver algum problema
             if (!File.Exists(Local + "\\assets\\minecraft\\sounds.json"))
             {
                 DadosT[0, 0] = "n";
@@ -101,21 +101,21 @@ namespace Minecraft_Sons_1._0
             {
                 string NomeJson;
                 string TipoJson;
-                string NomeArquivo;
+                string NomeArquivo;//Variaveis que servem de apoio
                 string LocalArquivo;
                 int IntEscritura = 1; 
 
                 for(int Etapa = 0; Etapa < DadosJson.Length / 2; Etapa++)
                 {
-                    NomeJson = DadosJson[Etapa, 0];
-                    TipoJson = DadosJson[Etapa, 1];
+                    NomeJson = DadosJson[Etapa, 0];//Recebe os primeiros dados
+                    TipoJson = DadosJson[Etapa, 1];//A lista é organizada a partir disso
                     for (int i = 0;i  < NomesSons.Count;i++)
                     {
                         NomeArquivo = NomesSons[i];
-                        LocalArquivo = LocalTodosSons[i];
+                        LocalArquivo = LocalTodosSons[i];//Recebe os dados que serão procurados
 
                         if(NomeJson == NomeArquivo)
-                        {
+                        {//Se tudo estiver certo ele modifica a saida com os dados já organizados
                             Dados[IntEscritura, 0] = NomeJson;
                             Dados[IntEscritura, 1] = TipoJson;
                             Dados[IntEscritura, 2] = LocalArquivo;
@@ -124,10 +124,8 @@ namespace Minecraft_Sons_1._0
                         }
                     }
                 }
-                MessageBox.Show("ok");
             }
             #endregion
-
 
             return Dados;
         }
