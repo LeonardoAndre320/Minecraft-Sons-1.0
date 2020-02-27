@@ -17,11 +17,11 @@ namespace Minecraft_Sons_1._0
             Local = Path.GetDirectoryName(Local);//muda para a pasta do arquivo
             string[] Json = File.ReadAllLines(Local + "\\assets\\minecraft\\sounds.json");
             string[,] DadosJson = new string[1000,1000];
-            string[,] Dados = new string[3,4];
+            string[,] Dados = new string[200,4];
             bool Erro = false;
 
             #region Vendo se os arquivos existem e se é o arquivo esperado
-            Dados[0, 0] = "s";Dados[0, 1] = "s";
+            Dados[0, 0] = "s";Dados[0, 1] = "s"; Dados[0, 2] = "s";Dados[0, 3] = "s";
             if (!File.Exists(Local + "\\assets\\minecraft\\sounds.json"))
             {
                 Dados[0, 0] = "n";
@@ -67,38 +67,40 @@ namespace Minecraft_Sons_1._0
             }
             #endregion
 
-            #region Define e organiza os dados no array
+            #region Verefica se exite mais de um do que de outro
 
-            bool completo = false;
-            int NumeroDados = 1;
-            int Numero = 0;
-            for(int etapa = 0;!completo;etapa++)
-            {
-                String NomeJson = DadosJson[Numero, 0];
-                String TipoJson = DadosJson[Numero, 1];
-                String NomeArquivo = NomesSons[etapa];
-                String LocalArquivo = LocalTodosSons[etapa];
-
-                if(NomeJson == NomeArquivo)
-                {
-                    Dados[NumeroDados, 0] = NomeJson;
-                    Dados[NumeroDados, 1] = TipoJson;
-                    Dados[NumeroDados, 2] = LocalArquivo;
-                    Dados[NumeroDados, 3] = "Original";
-                }
-                if(etapa == NomesSons.Count)
-                {
-                    Numero++;
-                }
-
-                if (etapa == NomesSons.Count && Numero == DadosJson.Length)
-                {
-                    completo = true;
-                }
-            }
-            MessageBox.Show("Agora vai");
             #endregion
 
+            #region Define e organiza os dados no array
+            {
+                string NomeJson;
+                string TipoJson;
+                string NomeArquivo;
+                string LocalArquivo;
+                int IntEscritura = 1; 
+
+                for(int Etapa = 0; Etapa < DadosJson.Length - 2; Etapa++)
+                {
+                    NomeJson = DadosJson[Etapa, 0];
+                    TipoJson = DadosJson[Etapa, 1];
+                    for (int i = 0;i  < NomesSons.Count;i++)
+                    {
+                        NomeArquivo = NomesSons[i];
+                        LocalArquivo = LocalTodosSons[i];
+
+                        if(NomeJson == NomeArquivo)
+                        {
+                            Dados[IntEscritura, 0] = NomeJson;
+                            Dados[IntEscritura, 1] = TipoJson;
+                            Dados[IntEscritura, 2] = LocalArquivo;
+                            Dados[IntEscritura, 3] = "Original";
+                            IntEscritura++;
+                        }
+                    }
+                }
+                MessageBox.Show("ok");
+            }
+            #endregion
             return Dados;
         }
 
