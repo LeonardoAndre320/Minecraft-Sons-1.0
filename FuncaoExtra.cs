@@ -12,39 +12,41 @@ namespace Minecraft_Sons_1._0
     {
         public string[,] LerTextura(string Local)
         {
+            Aviso Aviso = new Aviso();//Entenda isso como um using:)
+
             //0   //1   //2    //3
             //Nome//Tipo//Local//original
             Local = Path.GetDirectoryName(Local);//muda para a pasta do arquivo
             string[] Json = File.ReadAllLines(Local + "\\assets\\minecraft\\sounds.json");
             string[,] DadosJson = new string[1000,1000];
-            string[,] Dados = new string[200,4];
+            string[,] DadosT = new string[1, 4];
             bool Erro = false;
 
             #region Vendo se os arquivos existem e se é o arquivo esperado
-            Dados[0, 0] = "s";Dados[0, 1] = "s"; Dados[0, 2] = "s";Dados[0, 3] = "s";
+            DadosT[0, 0] = "s"; DadosT[0, 1] = "s"; DadosT[0, 2] = "s"; DadosT[0, 3] = "s";
             if (!File.Exists(Local + "\\assets\\minecraft\\sounds.json"))
             {
-                Dados[0, 0] = "n";
+                DadosT[0, 0] = "n";
                 Erro = true;
             } else
             if (!Directory.Exists(Local + "\\assets\\minecraft\\sounds"))
             {
-                Dados[0, 1] = "n";
+                DadosT[0, 1] = "n";
                 Erro = true;
             } else
             if (Json.Count() % 2 != 0)
             {
-                Dados[0, 2] = "n";
+                DadosT[0, 2] = "n";
                 Erro = true;
             } else
             if (Json[0] != "{")
             {
-                Dados[0, 2] = "n";
+                DadosT[0, 2] = "n";
                 Erro = true;
             } else
             if (Json[Json.Count() - 1] != "}")
             {
-                Dados[0, 2] = "n";
+                DadosT[0, 2] = "n";
                 Erro = true;
             }
             #endregion
@@ -68,7 +70,31 @@ namespace Minecraft_Sons_1._0
             #endregion
 
             #region Verefica se exite mais de um do que de outro
+            int NumeroRegistros = DadosJson.Length / 2;
+            int NumeroArquivos = LocalTodosSons.Count;
 
+            {
+
+                if(NumeroRegistros > NumeroArquivos)
+                {
+                    Aviso.mostrar("É demais", "Tem mais registros do que arquivos, e não consigo dizer qual é qual.\nMas ainda consigo carregar uns dados.");
+                }
+                else
+                if(NumeroRegistros < NumeroArquivos)
+                {
+                    Aviso.mostrar("É demais", "Tem mais arquivos do que registros e isso acabou comigo.\nMuitos arquivos confundem meus sistema e não vou poder carregar mais nada.\nVá até a pasta e exclua todos os arquivos que não forem importantes e tente novamente");
+                    Erro = true;
+                }
+            }
+            #endregion
+
+            #region Cria a matriz que retorna os dados
+            string[,] Dados = new string[NumeroRegistros + 1, 4];
+
+            Dados[0, 0] = DadosT[0, 0];
+            Dados[0, 1] = DadosT[0, 1];
+            Dados[0, 2] = DadosT[0, 2];
+            Dados[0, 3] = DadosT[0, 3];
             #endregion
 
             #region Define e organiza os dados no array
@@ -79,7 +105,7 @@ namespace Minecraft_Sons_1._0
                 string LocalArquivo;
                 int IntEscritura = 1; 
 
-                for(int Etapa = 0; Etapa < DadosJson.Length - 2; Etapa++)
+                for(int Etapa = 0; Etapa < DadosJson.Length / 2; Etapa++)
                 {
                     NomeJson = DadosJson[Etapa, 0];
                     TipoJson = DadosJson[Etapa, 1];
@@ -101,6 +127,8 @@ namespace Minecraft_Sons_1._0
                 MessageBox.Show("ok");
             }
             #endregion
+
+
             return Dados;
         }
 
