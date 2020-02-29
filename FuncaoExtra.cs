@@ -18,7 +18,7 @@ namespace Minecraft_Sons_1._0
             //Nome//Tipo//Local//original
             Local = Path.GetDirectoryName(Local);//muda para a pasta do arquivo
             string[] Json = File.ReadAllLines(Local + "\\assets\\minecraft\\sounds.json");
-            string[,] DadosJson = new string[1000,1000];
+            string[,] DadosJson = new string[100,2];
             string[,] DadosT = new string[1, 4];
             bool Erro = false;
 
@@ -54,7 +54,7 @@ namespace Minecraft_Sons_1._0
             if (Erro == false)
             {
                 string[,] DadosTemporarios = LerJson(Local + "\\assets\\minecraft\\sounds.json");
-                DadosJson = new string[DadosTemporarios.Length,3];
+                DadosJson = new string[TamanhoArray(DadosTemporarios),3];
                 DadosJson = DadosTemporarios;
                 //Nome//Tipo
             }
@@ -70,7 +70,7 @@ namespace Minecraft_Sons_1._0
             #endregion
 
             #region Verefica se exite mais de um do que de outro
-            int NumeroRegistros = DadosJson.Length / 2;
+            int NumeroRegistros = TamanhoArray(DadosJson);
             int NumeroArquivos = LocalTodosSons.Count;
 
             {
@@ -105,7 +105,7 @@ namespace Minecraft_Sons_1._0
                 string LocalArquivo;
                 int IntEscritura = 1; 
 
-                for(int Etapa = 0; Etapa < DadosJson.Length / 2; Etapa++)
+                for(int Etapa = 0; Etapa < TamanhoArray(DadosJson); Etapa++)
                 {
                     NomeJson = DadosJson[Etapa, 0];//Recebe os primeiros dados
                     TipoJson = DadosJson[Etapa, 1];//A lista é organizada a partir disso
@@ -178,5 +178,70 @@ namespace Minecraft_Sons_1._0
             }
             return Retorno;
         }
+
+        public int TamanhoArray(string[,] Array)
+        {
+            string[,] Matriz = Array;
+            int Retorno = 0;
+
+            #region Verefia se é 0
+            try
+            {
+                Matriz[0, 0] = "";
+            }catch
+            {
+                Retorno = 0;
+            }
+            #endregion
+
+            #region Verefica qual o numero a partir do erro
+
+            try
+            {
+                for(int i = 1;i<Matriz.Length;i++)
+                {
+                    Retorno = i;
+                    Matriz[i, 0] = i + "";
+                }
+            }
+            catch { }//Não tem nada para não parar o programa
+
+            #endregion
+
+            return Retorno;
+        }
+
+        public void CopiarDiretorio(string DiretorioInicial,string DiretorioFinal,bool CopiarSubdiretorios)
+        {
+            DirectoryInfo Diretorio = new DirectoryInfo(DiretorioInicial);
+
+            if(Diretorio.Exists)
+            {
+                DirectoryInfo[] Diretorios = Diretorio.GetDirectories();//Pega todos os diretorios
+
+                if (!Directory.Exists(DiretorioFinal))//Cria o destino se ele não existir
+                {
+                    Directory.CreateDirectory(DiretorioFinal);
+                }
+
+                FileInfo[] Arquivos = Diretorio.GetFiles();//Pega todos os aquivos
+
+                foreach(FileInfo file in Arquivos)//Copia cada arquivo, eu acho
+                {
+                    string CaminhoTemporario = Path.Combine(DiretorioFinal, file.Name);
+                    file.CopyTo(CaminhoTemporario, false);
+                }
+
+                if (CopiarSubdiretorios)
+                {
+                    foreach (DirectoryInfo SubDiretorio in Diretorios)//Copia todas as pastas
+                    {
+                        string CaminhoTemporario = Path.Combine(DiretorioFinal, SubDiretorio.Name);
+                        CopiarDiretorio(SubDiretorio.FullName, CaminhoTemporario, CopiarSubdiretorios);
+                    }
+                }
+            }
+        }
+        //Codigo baseado em:https://docs.microsoft.com/pt-br/dotnet/standard/io/how-to-copy-directories
     }
 }

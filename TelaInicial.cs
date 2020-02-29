@@ -29,6 +29,8 @@ namespace Minecraft_Sons_1._0
 
         private void bntAbrir_Click(object sender, EventArgs e)
         {
+            FuncaoExtra FuncaoExtra = new FuncaoExtra(); //Entenda como um using
+
             Buscador.Title = "Escolha o arquivo .mcmeta de sua textura ou o arquivo .zip dela";
             Buscador.Multiselect = false;
             Buscador.FileName = "";
@@ -43,18 +45,18 @@ namespace Minecraft_Sons_1._0
 
                 if (extencao == ".zip")
                 {
-                    if(!Directory.Exists(Directory.GetCurrentDirectory() + "//Temp"))
-                    {
-                        Directory.CreateDirectory(Directory.GetCurrentDirectory() + "//Temp");
-                    }
-
-                    ZipFile.ExtractToDirectory(LocalArquivo, Directory.GetCurrentDirectory() + "//Temp");
-                    Aviso.mostrar("Concluido", "A operação terminou na pasta:" + Directory.GetCurrentDirectory() + "//Temp");
+                    if (Directory.Exists(Directory.GetCurrentDirectory() + "\\Temp")) { Directory.Delete(Directory.GetCurrentDirectory() + "\\Temp", true); }//Exclui a pasta Temp
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Temp");
+                    ZipFile.ExtractToDirectory(LocalArquivo, Directory.GetCurrentDirectory() + "\\Temp");
+                    
+                    
                 }
                 else if(extencao == ".mcmeta")
                 {
-                    FuncaoExtra fe = new FuncaoExtra();
-                    fe.LerTextura(LocalArquivo);
+                    if (Directory.Exists(Directory.GetCurrentDirectory() + "\\Temp")){ Directory.Delete(Directory.GetCurrentDirectory() + "\\Temp", true); }//Exclui a pasta Temp
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Temp");
+                    //MessageBox.Show(Directory.GetParent(LocalArquivo) + "");
+                    FuncaoExtra.CopiarDiretorio(Directory.GetParent(LocalArquivo) + "", Directory.GetCurrentDirectory() + "\\Temp", true);
                 }
                 else if(extencao == "mcs")
                 {
