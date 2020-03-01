@@ -25,6 +25,9 @@ namespace Minecraft_Sons_1._0
 
         private void bntNovo_Click(object sender, EventArgs e)
         {
+            TelaPrincipal TP = new TelaPrincipal();
+            TP.Show();
+            Hide();
         }
 
         private void bntAbrir_Click(object sender, EventArgs e)

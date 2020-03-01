@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaPrincipal.Designer.cs">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Aviso.resx">
       <DependentUpon>Aviso.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TelaPrincipal.resx">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
