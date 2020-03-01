@@ -12,9 +12,17 @@ namespace Minecraft_Sons_1._0
 {
     public partial class TelaPrincipal : Form
     {
-        public TelaPrincipal()
+        public TelaPrincipal(List<string> DadosProjeto = null,string[,] Dados = null)
         {
             InitializeComponent();
+
+            Carregar.Fechar();
+            FuncaoExtra FuncaoExtra = new FuncaoExtra();
+            CaixaLista.Items.Clear();
+            for(int i = 1; i < FuncaoExtra.TamanhoArray(Dados);i++)
+            {
+                CaixaLista.Items.Add(Dados[i, 0]);
+            }
         }
     }
 }

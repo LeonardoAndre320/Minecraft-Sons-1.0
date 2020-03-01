@@ -48,18 +48,47 @@ namespace Minecraft_Sons_1._0
 
                 if (extencao == ".zip")
                 {
+                    Carregar.Abrir();
                     if (Directory.Exists(Directory.GetCurrentDirectory() + "\\Temp")) { Directory.Delete(Directory.GetCurrentDirectory() + "\\Temp", true); }//Exclui a pasta Temp
                     Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Temp");
-                    ZipFile.ExtractToDirectory(LocalArquivo, Directory.GetCurrentDirectory() + "\\Temp");
-                    
-                    
+
+                    ZipFile.ExtractToDirectory(LocalArquivo, Directory.GetCurrentDirectory() + "\\Temp\\" + NomeArquivo);
+
+                    string LocalTemp = Directory.GetCurrentDirectory() + "\\Temp\\" + NomeArquivo; 
+
+                    if(File.Exists(LocalTemp + "\\assets\\minecraft\\sounds.json"))
+                    {
+                        List<string> DadosProjeto = new List<string>();
+                        DadosProjeto.Add(NomeArquivo);
+                        DadosProjeto.Add("zip");
+                        DadosProjeto.Add(LocalTemp);
+                        TelaPrincipal TP = new TelaPrincipal(DadosProjeto, FuncaoExtra.LerTextura(LocalTemp + "\\pack.mcmeta"));
+                        TP.Show();
+                    }
+                    else
+                    {
+                        Aviso.mostrar("Começando do zero", "Não encontrei o json e por isso vamos começar a modificar do zero");
+                    }
                 }
                 else if(extencao == ".mcmeta")
                 {
                     if (Directory.Exists(Directory.GetCurrentDirectory() + "\\Temp")){ Directory.Delete(Directory.GetCurrentDirectory() + "\\Temp", true); }//Exclui a pasta Temp
                     Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Temp");
-                    //MessageBox.Show(Directory.GetParent(LocalArquivo) + "");
-                    FuncaoExtra.CopiarDiretorio(Directory.GetParent(LocalArquivo) + "", Directory.GetCurrentDirectory() + "\\Temp", true);
+
+                    string LocalA = Directory.GetParent(LocalArquivo) + "";
+                    string NomeA = Path.GetFileNameWithoutExtension(LocalA);
+                    string LocalTemp = Directory.GetCurrentDirectory() + "\\Temp\\" + NomeA;
+
+                    FuncaoExtra.CopiarDiretorio(LocalA, Directory.GetCurrentDirectory() + "\\Temp\\" + NomeA, true);
+
+                    if (File.Exists(LocalTemp + "\\assets\\minecraft\\sounds.json"))
+                    {
+
+                    }
+                    else
+                    {
+                        Aviso.mostrar("Começando do zero", "Não encontrei o json e por isso vamos começar a modificar do zero");
+                    }
                 }
                 else if(extencao == "mcs")
                 {

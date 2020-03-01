@@ -21,14 +21,14 @@ namespace Minecraft_Sons_1._0
         bool Pergunta = false;
     
         //Organiza os dados e mostra na tela
-        public bool mostrar(string Titulo, string Mensagem, string SAG = "Simples,Media,Grave", bool pergunta = false,string resposta = "sim/não")
+        public bool mostrar(string Titulo, string Mensagem, string SAG = "Simples,Media,Grave", bool pergunta = false)
         {
             Size = new Size(500, 167);//Volta ao tamanho normal
 
             lblTitulo.Text = Titulo;
             lblMensagem.Text = Mensagem;
             Pergunta = pergunta;
-
+            string resposta = "a";
             switch (SAG)//Cores de fundo
             {
                 case "Simples": BackColor = Color.SteelBlue; break;
@@ -69,7 +69,7 @@ namespace Minecraft_Sons_1._0
             bnt2.Location = new Point(Size.Width - 103, Size.Height - 74);
 
             ShowDialog();
-            bnt1.Select();
+
             for (;resposta != "";)
             {
                 break;
