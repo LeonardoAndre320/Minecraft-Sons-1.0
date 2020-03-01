@@ -15,11 +15,6 @@ namespace Minecraft_Sons_1._0
         public TelaPrincipal()
         {
             InitializeComponent();
-
-            Label lbl = new Label();
-            lbl.Location = new Point(50, 50);
-            lbl.Text = "ola";
-            Controls.Add(lbl);
         }
     }
 }
